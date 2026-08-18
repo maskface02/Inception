@@ -1,2 +1,5 @@
 .env
 secrets/*
+~/Desktop/Projects/inception/srcs/requirements/nginx/tools/nginx.crt
+~/Desktop/Projects/inception/srcs/requirements/nginx/tools/nginx.key
+
