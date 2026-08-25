@@ -35,7 +35,11 @@ EOF
     chown -R nobody:nobody /var/www/html
 fi
 
-sleep 5
+echo "Waiting for MariaDB to be ready..."
+until mysqladmin ping -h"${WORDPRESS_DB_HOST}" -u"${WORDPRESS_DB_USER}" -p"$(cat "$WORDPRESS_DB_PASSWORD_FILE")" --silent 2>/dev/null; do
+    sleep 2
+done
+echo "MariaDB is ready."
 
 if [ ! -f /var/www/html/.installed ]; then
     echo "Installing WordPress..."

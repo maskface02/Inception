@@ -1,13 +1,10 @@
-FROM alpine:3.24
+FROM alpine:3.23
 
-RUN apk add --no-cache nginx openssl \
-    && rm -rf /var/cache/apk/*
-
-COPY tools/nginx.crt /etc/nginx/ssl/nginx.crt
-COPY tools/nginx.key /etc/nginx/ssl/nginx.key
+RUN apk add --no-cache nginx openssl
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY tools/init-nginx.sh /usr/local/bin/
+
 RUN chmod +x /usr/local/bin/init-nginx.sh
 
 EXPOSE 443
