@@ -1,5 +1,5 @@
-.env
-secrets/
+# .env
+# secrets/
 *.key
 *.crt
 
