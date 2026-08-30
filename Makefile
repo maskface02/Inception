@@ -5,6 +5,7 @@ COMPOSE = docker compose -f $(COMPOSE_FILE)
 all: up
 
 build:
+	@mkdir -p /home/$(USER)/data/wordpress /home/$(USER)/data/mariadb
 	@$(COMPOSE) build
 
 up: build
@@ -20,7 +21,7 @@ clean:
 
 fclean: clean
 	@docker system prune -af
-	@docker volume prune -f
+	@sudo rm -rf ~/data/wordpress ~/data/mariadb
 	@docker network prune -f
 
 .PHONY: all build up down re clean fclean
