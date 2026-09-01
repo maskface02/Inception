@@ -2,7 +2,7 @@ FROM alpine:3.23
 
 RUN apk add --no-cache nginx openssl
 
-COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
+COPY conf/nginx.conf /etc/nginx/http.d/default.conf 
 
 COPY tools/init-nginx.sh /usr/local/bin/
 
