@@ -6,7 +6,8 @@ RUN apk add --no-cache \
     php83-openssl php83-xml php83-zip \
     php83-gd php83-iconv php83-intl php83-phar \
     wget tar mariadb-client \
-    && sed -i 's/127.0.0.1:9000/0.0.0.0:9000/' /etc/php83/php-fpm.d/www.conf
+    && sed -i 's/127.0.0.1:9000/0.0.0.0:9000/' /etc/php83/php-fpm.d/www.conf \
+    && ln -sf /usr/bin/php83 /usr/bin/php
 
 COPY tools/setup-wp.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/setup-wp.sh
