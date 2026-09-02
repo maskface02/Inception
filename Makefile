@@ -21,7 +21,7 @@ clean:
 
 fclean: clean
 	@docker system prune -af
-	@sudo rm -rf ~/data/$(USER)/wordpress ~/data/$(USER)/mariadb
+	@sudo rm -rf /home/$(USER)/data/wordpress /home/$(USER)/data/mariadb
 	@docker network prune -f
 
 .PHONY: all build up down re clean fclean
