@@ -13,8 +13,6 @@ services:
       - inception
     volumes:
       - db_data:/var/lib/mysql
-    expose:
-      - "3306"
 
   wordpress:
     image: wordpress
@@ -33,8 +31,6 @@ services:
       - wp_files:/var/www/html
     depends_on:
       - mariadb
-    expose:
-      - "9000"
 
   nginx:
     image: nginx

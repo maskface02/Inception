@@ -11,9 +11,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
   mysqld --user=mysql --datadir=/var/lib/mysql &
   pid=$!
 
-  until mariadb-admin ping --silent 2>/dev/null; do
-    sleep 1
-  done
+  sleep 2
 
   mariadb -u root <<EOF
 CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;

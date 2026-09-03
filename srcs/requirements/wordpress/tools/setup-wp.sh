@@ -37,7 +37,7 @@ fi
 
 echo "Waiting for MariaDB to be ready..."
 until mysqladmin ping -h"${WORDPRESS_DB_HOST}" -u"${WORDPRESS_DB_USER}" -p"$(cat "$WORDPRESS_DB_PASSWORD_FILE")" --silent 2>/dev/null; do
-    sleep 2
+    sleep 1
 done
 echo "MariaDB is ready."
 
